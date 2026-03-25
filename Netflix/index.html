@@ -1,33 +1,63 @@
 <!DOCTYPE html>
+<!-- Declaração do tipo de documento HTML5, essencial para o navegador interpretar corretamente -->
 <html lang="pt-br">
+<!-- Define o idioma da página como português brasileiro para acessibilidade e SEO -->
 <head>
     <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8 para suportar acentos e caracteres especiais -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura a viewport para dispositivos móveis, garantindo responsividade -->
     <title>Netflix</title>
+    <!-- Título da página que aparece na aba do navegador -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Vincula o arquivo de estilos CSS externo -->
 </head>
 <body>
+    <!-- Corpo da página, onde todo o conteúdo visível é colocado -->
     <main>
-        <div class="logo">Netflix</div>
-        <h1>Quem está assistindo?</h1>
-        <div class="profiles">
-            <div class="profile">
-                <img src="./assets/perfil-1.png" alt="Perfil 1">
-                <p>Perfil 1</p>
-            </div>
-            <div class="profile">
-                <img src="./assets/perfil-2.png" alt="Perfil 2">
-                <p>Perfil 2</p>
-            </div>
-            <div class="profile">
-                <img src="./assets/infantil.png" alt="Infantil">
-                <p>Infantil</p>
-            </div>
-            <div class="profile">
-                <img src="./assets/add-profile.png" alt="Adicionar Perfil">
-                <p>Adicionar Perfil</p>
-            </div>
-        </div>
+        <!-- Elemento semântico que representa o conteúdo principal da página -->
+        <header>
+            <!-- Cabeçalho da página, contém elementos de navegação ou identificação -->
+            <h1 class="logo">Netflix</h1>
+            <!-- Título principal (logo), usando h1 para hierarquia semântica -->
+            <h2 id="profile-title">Quem está assistindo?</h2>
+            <!-- Subtítulo com ID para referência de acessibilidade -->
+        </header>
+
+        <section class="profiles" aria-labelledby="profile-title">
+            <!-- Seção semântica para os perfis, associada ao título via aria-labelledby para leitores de tela -->
+            <ul>
+                <!-- Lista não ordenada para os itens de perfil, estrutura semântica apropriada -->
+                <li>
+                    <!-- Item da lista para cada perfil -->
+                    <button class="profile" type="button">
+                        <!-- Botão semântico para interação, melhor que div para acessibilidade -->
+                        <img src="./assets/perfil-1.png" alt="Avatar de um homem com barba, óculos e boné azul, vestindo camisa quadriculada e cardigã preto.">
+                        <!-- Imagem com alt text descritivo para acessibilidade -->
+                        <span>Paulo</span>
+                        <!-- Texto do perfil, usando span em vez de p para evitar quebra de linha semântica -->
+                    </button>
+                </li>
+                <li>
+                    <button class="profile" type="button">
+                        <img src="./assets/perfil-2.png" alt="Avatar de uma mulher com cabelos cacheados castanhos, óculos e suéter amarelo com estampa de margarida.">
+                        <span>Michele</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="profile" type="button">
+                        <img src="./assets/infantil.png" alt="Avatar de uma criança com óculos, toca azul e colete de tricô com bordado de trenzinho.">
+                        <span>Infantil</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="profile" type="button">
+                        <img src="./assets/add-profile.png" alt="Ícone circular cinza com um símbolo de adição (+) centralizado para criar um novo perfil.">
+                        <span>Adicionar Perfil</span>
+                    </button>
+                </li>
+            </ul>
+        </section>
     </main>
 </body>
 </html>
