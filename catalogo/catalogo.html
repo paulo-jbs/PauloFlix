@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PauloFlix</title>
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+
+            if (initialTheme === 'light') {
+                document.documentElement.classList.add('light-mode');
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="catalogo.css">
+    </head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="navbar-left">
+            <a class="logo" href="../index.html" aria-label="PauloFlix">
+                <img src="../assets/logo.png" alt="PauloFlix">
+            </a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"
+                aria-label="Abrir menu">
+                <span class="menu-toggle-icon">&#9776;</span>
+                <span class="menu-toggle-label">Menu</span>
+            </button>
+            <nav class="site-nav" id="mobile-nav">
+                <ul class="nav-links">
+                    <li><a href="https://www.linkedin.com/in/paulojbs/" class="active">Início</a></li>
+                    <li><a href="https://www.linkedin.com/in/paulojbs/">Séries</a></li>
+                    <li><a href="https://www.linkedin.com/in/paulojbs/">Filmes</a></li>
+                    <li><a href="https://www.linkedin.com/in/paulojbs/">Jogos</a></li>
+                    <li><a href="https://www.linkedin.com/in/paulojbs/">Bombando</a></li>
+                    <li><a href="https://www.linkedin.com/in/paulojbs/">Minha lista</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="navbar-right">
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Alternar tema claro e escuro">
+                <span class="theme-icon" aria-hidden="true"></span>
+            </button>
+            <i class="fas fa-search icon"></i>
+            <div class="nav-notification">
+                <i class="fas fa-bell icon"></i>
+            </div>
+            <a href="../index.html" class="profile-menu" style="text-decoration: none; color: inherit;">
+                <span class="kids-link">Seu nome</span>
+                <img class="profile-icon" src="../assets/perfil-1.png"
+                    alt="Profile">
+                <i class="fas fa-caret-down icon" style="font-size: 14px; margin-left: 5px;"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Sliders Container -->
+    <main class="sliders-container" id="main-content">
+        <!-- Javascript will inject the rows here -->
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <a href="https://www.linkedin.com/in/paulojbs/" target="_blank">
+            </a>
+            <ul class="footer-links">
+                <li><a href="https://www.linkedin.com/in/paulojbs/" target="_blank">Perguntas frequentes</a></li>
+                <li><a href="https://www.linkedin.com/in/paulojbs/" target="_blank">Centro de ajuda</a></li>
+                <li><a href="https://www.linkedin.com/in/paulojbs/" target="_blank">Conta</a></li>
+                <li><a href="https://www.linkedin.com/in/paulojbs/" target="_blank">Imprensa</a></li>
+                <li><a href="https://www.linkedin.com/in/paulojbs/" target="_blank">Relações com investidores</a></li>
+                <li><a href="https://www.linkedin.com/in/paulojbs/" target="_blank">Formas de assistir</a></li>
+                <li><a href="https://www.linkedin.com/in/paulojbs/" target="_blank">Termos de uso</a></li>
+                <li><a href="https://www.linkedin.com/in/paulojbs/" target="_blank">Privacidade</a></li>
+                <li><a href="https://www.linkedin.com/in/paulojbs/" target="_blank">Preferências de cookies</a></li>
+                <li><a href="https://www.linkedin.com/in/paulojbs/" target="_blank">Informações corporativas</a></li>
+                <li><a href="https://www.linkedin.com/in/paulojbs/" target="_blank">Entre em contato</a></li>
+                <li><a href="https://www.linkedin.com/in/paulojbs/" target="_blank">Teste de velocidade</a></li>
+                <li><a href="https://www.linkedin.com/in/paulojbs/" target="_blank">Avisos legais</a></li>
+                <li><a href="https://www.linkedin.com/in/paulojbs/" target="_blank">Só no PauloFlix</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

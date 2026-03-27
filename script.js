@@ -1,35 +1,29 @@
-// Recuperar tema salvo ou usar preferência do sistema
-const savedTheme = localStorage.getItem("theme") || "dark";
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
-
-// Aplicar tema inicial
-if (initialTheme === "light") {
-  document.body.classList.add("light-mode");
-}
-
-// Obter referência do botão
+const THEME_STORAGE_KEY = "theme";
+const root = document.documentElement;
 const themeToggle = document.getElementById("theme-toggle");
-const themeIcon = document.querySelector(".theme-icon");
 
-// Função para alternar tema
-function toggleTheme() {
-  const isLightMode = document.body.classList.contains("light-mode");
+function applyTheme(theme) {
+  const isLightMode = theme === "light";
+  root.classList.toggle("light-mode", isLightMode);
 
-  if (isLightMode) {
-    document.body.classList.remove("light-mode");
-    localStorage.setItem("theme", "dark");
-    themeIcon.textContent = "☀️";
-  } else {
-    document.body.classList.add("light-mode");
-    localStorage.setItem("theme", "light");
-    themeIcon.textContent = "🌙";
+  if (themeToggle) {
+    themeToggle.setAttribute(
+      "aria-label",
+      isLightMode ? "Ativar modo escuro" : "Ativar modo claro"
+    );
   }
 }
 
-// Adicionar event listener ao botão
-themeToggle.addEventListener("click", toggleTheme);
+const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
 
-// Atualizar ícone inicial
-const isLightMode = document.body.classList.contains("light-mode");
-themeIcon.textContent = isLightMode ? "☀️" : "🌙";
+applyTheme(initialTheme);
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const nextTheme = root.classList.contains("light-mode") ? "dark" : "light";
+    localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    applyTheme(nextTheme);
+  });
+}
